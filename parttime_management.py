@@ -17,12 +17,15 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # connect with mssql with python
-connector = pymssql.connect(server = '[insert server code]',
+thread_running = True
+TIME_INTERVAL = 10
+
+conn = pymssql.connect(server = '[insert server code]',
                             user = '[insert id]',
                             password = '[insert pw]',
                             database = '[insert database name]',
                             charset = 'utf8')
-cursor = connector.cursor()
+cursor = conn.cursor()
 
 # assign 200 data to output id
 def push_data(list_var):
